@@ -11,6 +11,7 @@ namespace QLVT.Models
     {
         [Key]
         public int MaDSTau { get; set; }
+        public string TenTau { get; set; }
         public int SoLuongKhoang { get; set; }
     }
 }

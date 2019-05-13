@@ -11,8 +11,9 @@ namespace QLVT.Models
     {
         [Key]
         public int MaHangVe { get; set; }
-        public string GheCung { get; set; }
-        public string GheMem { get; set; }
+        public string TenHangVeset { get; set; }
+        [ForeignKey("FKMaKhoangNam")]
         public int MaKhoangNam { get; set; }
+        public virtual KhoangNam FKMaKhoangNam { get; set; }
     }
 }

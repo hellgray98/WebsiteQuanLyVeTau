@@ -7,12 +7,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace QLVT.Models
 {
-    public class GaTau
+    public class ThamSo
     {
         [Key]
-        public int MaGaTau { get; set; }
-        public string TenGa { get; set; }
-        public int Loai { get; set; }
-
+        public int MaThamSo { get; set; }
+        public string GiaTri { get; set; }
+        public string GhiChu { get; set; }
     }
 }

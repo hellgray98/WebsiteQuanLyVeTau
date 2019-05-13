@@ -161,12 +161,17 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\CT_GaTrungGian.cs" />
+    <Compile Include="Models\CT_LichTau_VeTau.cs" />
     <Compile Include="Models\DSTau.cs" />
     <Compile Include="Models\GaTau.cs" />
     <Compile Include="Models\HangVe.cs" />
     <Compile Include="Models\KhachHang.cs" />
     <Compile Include="Models\KhoangNam.cs" />
     <Compile Include="Models\LichTau.cs" />
+    <Compile Include="Models\QuanLyGheTau.cs" />
+    <Compile Include="Models\ThamSo.cs" />
+    <Compile Include="Models\ToaTau.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Models\VeTau.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

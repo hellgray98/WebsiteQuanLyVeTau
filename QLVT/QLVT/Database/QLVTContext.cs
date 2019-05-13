@@ -11,8 +11,8 @@ namespace QLVT.Database
     {
         public QLVTContext() : base()
         {
-            string database = "QuanLyVeTau";
-            this.Database.Connection.ConnectionString = "Data Source=MSI\\SQLEXPRESS;Initial Catalog=" + database + ";Trusted_Connection=Yes";
+            string databasename = "QuanLyVeTau";
+            this.Database.Connection.ConnectionString = "Data Source=MSI\\SQLEXPRESS;Initial Catalog=" + databasename + ";Trusted_Connection=Yes";
 
         }
         public DbSet<DSTau> TbDSTau { get; set; }
@@ -23,5 +23,10 @@ namespace QLVT.Database
         public DbSet<LichTau> TbLichTau { get; set; }
         public DbSet<VeTau> TbVeTau { get; set; }
         public DbSet<CT_GaTrungGian> TbCt_GaTrungGian { get; set; }
+        public DbSet<CT_LichTau_VeTau> TbCt_LichTau_Vetau { get; set; }
+        public DbSet<ThamSo> TbThamso { get; set; }
+        public DbSet<QuanLyGheTau> TbQuanLyGheTau { get; set; }
+        public DbSet<User> TbUser { get; set; }
+        public DbSet<ToaTau> TbToaTau { get; set; }
     }
 }

@@ -11,9 +11,18 @@ namespace QLVT.Models
     {
         [Key]
         public int MaLichTau { get; set; }
+        [ForeignKey("FKMaTau")]
+        public int MaTau { get; set; }
+        public virtual DSTau FKMatau { get; set; }
+        [ForeignKey("FKMaGaDi")]
+        public int MaGaDi { get; set; }
+        public virtual GaTau FKGaDi { get; set; }
+        [ForeignKey("FKMaGaDen")]
+        public int MaGaDen { get; set; }
+        public virtual GaTau FKGaDen { get; set; }
         public DateTime NgayDi { get; set; }
         public string ThoiGianDi { get; set; }
         public string ThoiGianDen { get; set; }
-        public int MaGaTau { get; set; }
+        
     }
 }
