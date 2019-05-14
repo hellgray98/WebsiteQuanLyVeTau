@@ -11,9 +11,10 @@ namespace QLVT.Models
     {
         [Key]
         public int MaHangVe { get; set; }
+        public virtual ICollection<VeTau> FKMaHangVe { get; set; }
         public string TenHangVeset { get; set; }
         [ForeignKey("FKMaKhoangNam")]
-        public int MaKhoangNam { get; set; }
+        public int? MaKhoangNam { get; set; }
         public virtual KhoangNam FKMaKhoangNam { get; set; }
     }
 }

@@ -11,8 +11,9 @@ namespace QLVT.Models
     {
         [Key]
         public int MaGaTau { get; set; }
+        public virtual ICollection<CT_GaTrungGian> FKMaGaTrungGian { get; set; }
+        public virtual ICollection<LichTau> FKMaGaDi { get; set; }
         public string TenGa { get; set; }
         public int Loai { get; set; }
-
     }
 }

@@ -11,6 +11,7 @@ namespace QLVT.Models
     {
         [Key]
         public int MaKhoangNam { get; set; }
+        public virtual ICollection<HangVe> MaHangVe { get; set; }
         public string ViTriKhoang_4 { get; set; }
         public string ViTriKhoang_6 { get; set; }
     }

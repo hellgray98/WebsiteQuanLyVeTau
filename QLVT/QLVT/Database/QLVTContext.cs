@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using QLVT.Models;
 
 namespace QLVT.Database
 {
     public class QLVTContext:DbContext
     {
-        public QLVTContext() : base()
+        public QLVTContext() : base("QuanLyVeTauContext")
         {
-            string databasename = "QuanLyVeTau";
-            this.Database.Connection.ConnectionString = "Data Source=MSI\\SQLEXPRESS;Initial Catalog=" + databasename + ";Trusted_Connection=Yes";
-
+        }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
         public DbSet<DSTau> TbDSTau { get; set; }
         public DbSet<GaTau> TbGaTau { get; set; }

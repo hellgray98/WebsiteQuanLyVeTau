@@ -12,11 +12,11 @@ namespace QLVT.Models
         [Key]
         public int MaGaTrungGian { get; set; }
         [ForeignKey("FKMaLichTau")]
-        public int MaLichTau { get; set; }
-        public virtual LichTau FKMaLichTau { get; set; }
+        public int? MaLichTau { get; set; }
+        public virtual LichTau FKMaLichTau { get; set; }    
         [ForeignKey("FKMaGa")]
-        public int MaGa { get; set; }
-        public virtual GaTau FKMaGaDung { get; set; }
+        public int? MaGa { get; set; }
+        public virtual GaTau FKMaGa { get; set; }
         public string ThoiGianDung { get; set; }
     }
 }

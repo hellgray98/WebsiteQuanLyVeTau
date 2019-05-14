@@ -12,11 +12,11 @@ namespace QLVT.Models
         [Key]
         public int MaQLGhe { get; set; }
         [ForeignKey("FKMatau")]
-        public int MaTau { get; set; }
-        public virtual DSTau FKMaTau { get; set; }
+        public int? MaTau { get; set; }
+        public virtual DSTau FKMatau { get; set; }
         [ForeignKey("FKMaToa")]
-        public int MaToa { get; set; }
-        public virtual ToaTau FKMaToaTau { get; set; }
+        public int? MaToa { get; set; }
+        public virtual ToaTau FKMaToa { get; set; }
         public string TenViTri { get; set; }
     }
 }
