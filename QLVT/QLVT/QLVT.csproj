@@ -154,6 +154,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OfflineController.cs" />
     <Compile Include="Database\QLVTContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -183,6 +184,14 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\icon-128x128.png" />
+    <Content Include="Content\images\icon-144x144.png" />
+    <Content Include="Content\images\icon-152x152.png" />
+    <Content Include="Content\images\icon-192x192.png" />
+    <Content Include="Content\images\icon-384x384.png" />
+    <Content Include="Content\images\icon-512x512.png" />
+    <Content Include="Content\images\icon-72x72.png" />
+    <Content Include="Content\images\icon-96x96.png" />
     <Content Include="Content\style.css" />
     <Content Include="Content\TemplateAdmin\assets\css\animate.min.css" />
     <Content Include="Content\TemplateAdmin\assets\css\bootstrap.min.css" />
@@ -230,6 +239,7 @@
     <Content Include="Content\TemplateAdmin\assets\fonts\Pe-icon-7-stroke.eot" />
     <Content Include="Content\TemplateAdmin\assets\fonts\Pe-icon-7-stroke.ttf" />
     <Content Include="Content\TemplateAdmin\assets\fonts\Pe-icon-7-stroke.woff" />
+    <Content Include="manifest.json" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -241,6 +251,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="serviceworker.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -255,6 +266,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Offline\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,6 +1,4 @@
-﻿<!DOCTYPE html>
-
-<html>
+﻿<html>
 <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="../../Content/TemplateAdmin/assets/img/faces/favicon.ico">
@@ -21,7 +19,21 @@
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="../../Content/TemplateAdmin/assets/css/demo.css" rel="stylesheet" />
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#2196f3" />
 
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('serviceworker.js').then(function (registration) {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }).catch(function (err) {
+                //registration failed :(
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        } else {
+            console.log('No service-worker on this browser');
+        }
+    </script>
 
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -37,14 +49,11 @@
 <body>
     <div class="wrapper">
         <div class="sidebar" data-color="purple" data-image="../../Content/TemplateAdmin/assets/img/sidebar-5.jpg">
-
             <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
-
-
             <div class="sidebar-wrapper">
                 <div class="logo">
                     <a href="@Url.Action("Index","Home")" class="simple-text">
-                        Quản lý bán vé Tàu
+                        <strong>Quản lý bán vé Tàu</strong>
                     </a>
                 </div>
 
@@ -88,7 +97,6 @@
                 </ul>
             </div>
         </div>
-
         <div class="main-panel">
             <nav class="navbar navbar-default navbar-fixed">
                 <div class="container-fluid">
@@ -99,7 +107,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">@ViewBag.Title</a>
+                        <a class="navbar-brand" href="#"><strong>@ViewBag.Title</strong></a>
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul class="nav navbar-nav navbar-right">
@@ -113,23 +121,15 @@
                                     <li><a href="@Url.Action("Logout","Login")">Đăng xuất</a></li>
                                 </ul>
                             </li>
-                            <li>
-                                <a href="notifications.html">
-                                    <p>Xem trang chủ</p>
-                                </a>
-                            </li>
                         </ul>
                     </div>
                 </div>
             </nav>
-
-
             <div class="content">
                 <div class="container-fluid">
                     @RenderBody()
                 </div>
             </div>
-
             <footer class="footer">
                 <div class="container-fluid">
                     <nav class="pull-left">
