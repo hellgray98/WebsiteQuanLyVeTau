@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QuanLyVeTauContextModelStoreContainer" CdmEntityContainer="QuanLyVeTauContextEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="QuanLyVeTauContextModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CT_GaTrungGian">
+      <EntityTypeMapping TypeName="QuanLyVeTauContextModel.CT_GaTrungGian">
+        <MappingFragment StoreEntitySet="CT_GaTrungGian">
+          <ScalarProperty Name="MaGaTrungGian" ColumnName="MaGaTrungGian" />
+          <ScalarProperty Name="MaLichTau" ColumnName="MaLichTau" />
+          <ScalarProperty Name="MaGa" ColumnName="MaGa" />
+          <ScalarProperty Name="ThoiGianDung" ColumnName="ThoiGianDung" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CT_LichTau_VeTau">
+      <EntityTypeMapping TypeName="QuanLyVeTauContextModel.CT_LichTau_VeTau">
+        <MappingFragment StoreEntitySet="CT_LichTau_VeTau">
+          <ScalarProperty Name="MaViTri" ColumnName="MaViTri" />
+          <ScalarProperty Name="MaLichTau" ColumnName="MaLichTau" />
+          <ScalarProperty Name="DaDat" ColumnName="DaDat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DSTaus">
+      <EntityTypeMapping TypeName="QuanLyVeTauContextModel.DSTau">
+        <MappingFragment StoreEntitySet="DSTau">
+          <ScalarProperty Name="MaDSTau" ColumnName="MaDSTau" />
+          <ScalarProperty Name="TenTau" ColumnName="TenTau" />
+          <ScalarProperty Name="SoLuongKhoang" ColumnName="SoLuongKhoang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GaTaus">
+      <EntityTypeMapping TypeName="QuanLyVeTauContextModel.GaTau">
+        <MappingFragment StoreEntitySet="GaTau">
+          <ScalarProperty Name="MaGaTau" ColumnName="MaGaTau" />
+          <ScalarProperty Name="TenGa" ColumnName="TenGa" />
+          <ScalarProperty Name="Loai" ColumnName="Loai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HangVes">
+      <EntityTypeMapping TypeName="QuanLyVeTauContextModel.HangVe">
+        <MappingFragment StoreEntitySet="HangVe">
+          <ScalarProperty Name="MaHangVe" ColumnName="MaHangVe" />
+          <ScalarProperty Name="TenHangVeset" ColumnName="TenHangVeset" />
+          <ScalarProperty Name="MaKhoangNam" ColumnName="MaKhoangNam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KhachHangs">
+      <EntityTypeMapping TypeName="QuanLyVeTauContextModel.KhachHang">
+        <MappingFragment StoreEntitySet="KhachHang">
+          <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
+          <ScalarProperty Name="TenKhachHang" ColumnName="TenKhachHang" />
+          <ScalarProperty Name="CMND" ColumnName="CMND" />
+          <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KhoangNams">
+      <EntityTypeMapping TypeName="QuanLyVeTauContextModel.KhoangNam">
+        <MappingFragment StoreEntitySet="KhoangNam">
+          <ScalarProperty Name="MaKhoangNam" ColumnName="MaKhoangNam" />
+          <ScalarProperty Name="ViTriKhoang_4" ColumnName="ViTriKhoang_4" />
+          <ScalarProperty Name="ViTriKhoang_6" ColumnName="ViTriKhoang_6" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LichTaus">
+      <EntityTypeMapping TypeName="QuanLyVeTauContextModel.LichTau">
+        <MappingFragment StoreEntitySet="LichTau">
+          <ScalarProperty Name="MaLichTau" ColumnName="MaLichTau" />
+          <ScalarProperty Name="MaTau" ColumnName="MaTau" />
+          <ScalarProperty Name="MaGaDi" ColumnName="MaGaDi" />
+          <ScalarProperty Name="MaGaDen" ColumnName="MaGaDen" />
+          <ScalarProperty Name="NgayDi" ColumnName="NgayDi" />
+          <ScalarProperty Name="ThoiGianDi" ColumnName="ThoiGianDi" />
+          <ScalarProperty Name="ThoiGianDen" ColumnName="ThoiGianDen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QuanLyGheTaus">
+      <EntityTypeMapping TypeName="QuanLyVeTauContextModel.QuanLyGheTau">
+        <MappingFragment StoreEntitySet="QuanLyGheTau">
+          <ScalarProperty Name="MaQLGhe" ColumnName="MaQLGhe" />
+          <ScalarProperty Name="MaTau" ColumnName="MaTau" />
+          <ScalarProperty Name="MaToa" ColumnName="MaToa" />
+          <ScalarProperty Name="TenViTri" ColumnName="TenViTri" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThamSoes">
+      <EntityTypeMapping TypeName="QuanLyVeTauContextModel.ThamSo">
+        <MappingFragment StoreEntitySet="ThamSo">
+          <ScalarProperty Name="MaThamSo" ColumnName="MaThamSo" />
+          <ScalarProperty Name="GiaTri" ColumnName="GiaTri" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ToaTaus">
+      <EntityTypeMapping TypeName="QuanLyVeTauContextModel.ToaTau">
+        <MappingFragment StoreEntitySet="ToaTau">
+          <ScalarProperty Name="MaToaTau" ColumnName="MaToaTau" />
+          <ScalarProperty Name="TenToaTau" ColumnName="TenToaTau" />
+          <ScalarProperty Name="MaTau" ColumnName="MaTau" />
+          <ScalarProperty Name="MaHV" ColumnName="MaHV" />
+          <ScalarProperty Name="SoGhe" ColumnName="SoGhe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="QuanLyVeTauContextModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VeTaus">
+      <EntityTypeMapping TypeName="QuanLyVeTauContextModel.VeTau">
+        <MappingFragment StoreEntitySet="VeTau">
+          <ScalarProperty Name="MaVeTau" ColumnName="MaVeTau" />
+          <ScalarProperty Name="MaLichTau" ColumnName="MaLichTau" />
+          <ScalarProperty Name="MaKhachHang" ColumnName="MaKhachHang" />
+          <ScalarProperty Name="MaHangVe" ColumnName="MaHangVe" />
+          <ScalarProperty Name="MaToa" ColumnName="MaToa" />
+          <ScalarProperty Name="MaViTri" ColumnName="MaViTri" />
+          <ScalarProperty Name="GiaTien" ColumnName="GiaTien" />
+          <ScalarProperty Name="SoLuongKhach" ColumnName="SoLuongKhach" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

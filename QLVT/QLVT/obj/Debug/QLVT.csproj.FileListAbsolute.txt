@@ -188,5 +188,3 @@ D:\Projects\WebsiteQuanLyVeTau\QLVT\QLVT\bin\Microsoft.AI.WindowsServer.xml
 D:\Projects\WebsiteQuanLyVeTau\QLVT\QLVT\bin\Microsoft.AI.Web.xml
 D:\Projects\WebsiteQuanLyVeTau\QLVT\QLVT\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\Projects\WebsiteQuanLyVeTau\QLVT\QLVT\obj\Debug\QLVT.csproj.CopyComplete
-D:\Projects\WebsiteQuanLyVeTau\QLVT\QLVT\obj\Debug\QLVT.Migrations.db.resources
-D:\Projects\WebsiteQuanLyVeTau\QLVT\QLVT\obj\Debug\QLVT.csproj.GenerateResource.cache

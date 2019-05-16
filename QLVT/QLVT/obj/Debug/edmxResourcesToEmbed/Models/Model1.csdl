@@ -1,0 +1,437 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QuanLyVeTauContextModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CT_GaTrungGian">
+    <Key>
+      <PropertyRef Name="MaGaTrungGian" />
+    </Key>
+    <Property Name="MaGaTrungGian" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaLichTau" Type="Int32" />
+    <Property Name="MaGa" Type="Int32" />
+    <Property Name="ThoiGianDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="GaTau" Relationship="Self.FK_dbo_CT_GaTrungGian_dbo_GaTau_MaGa" FromRole="CT_GaTrungGian" ToRole="GaTau" />
+    <NavigationProperty Name="LichTau" Relationship="Self.FK_dbo_CT_GaTrungGian_dbo_LichTau_MaLichTau" FromRole="CT_GaTrungGian" ToRole="LichTau" />
+  </EntityType>
+  <EntityType Name="CT_LichTau_VeTau">
+    <Key>
+      <PropertyRef Name="MaViTri" />
+    </Key>
+    <Property Name="MaViTri" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaLichTau" Type="Int32" />
+    <Property Name="DaDat" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="LichTau" Relationship="Self.FK_dbo_CT_LichTau_VeTau_dbo_LichTau_MaLichTau" FromRole="CT_LichTau_VeTau" ToRole="LichTau" />
+    <NavigationProperty Name="VeTaus" Relationship="Self.FK_dbo_VeTau_dbo_CT_LichTau_VeTau_MaViTri" FromRole="CT_LichTau_VeTau" ToRole="VeTau" />
+  </EntityType>
+  <EntityType Name="DSTau">
+    <Key>
+      <PropertyRef Name="MaDSTau" />
+    </Key>
+    <Property Name="MaDSTau" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenTau" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SoLuongKhoang" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="LichTaus" Relationship="Self.FK_dbo_LichTau_dbo_DSTau_MaTau" FromRole="DSTau" ToRole="LichTau" />
+    <NavigationProperty Name="QuanLyGheTaus" Relationship="Self.FK_dbo_QuanLyGheTau_dbo_DSTau_MaTau" FromRole="DSTau" ToRole="QuanLyGheTau" />
+    <NavigationProperty Name="ToaTaus" Relationship="Self.FK_dbo_ToaTau_dbo_DSTau_MaTau" FromRole="DSTau" ToRole="ToaTau" />
+  </EntityType>
+  <EntityType Name="GaTau">
+    <Key>
+      <PropertyRef Name="MaGaTau" />
+    </Key>
+    <Property Name="MaGaTau" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenGa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Loai" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CT_GaTrungGian" Relationship="Self.FK_dbo_CT_GaTrungGian_dbo_GaTau_MaGa" FromRole="GaTau" ToRole="CT_GaTrungGian" />
+    <NavigationProperty Name="LichTaus" Relationship="Self.FK_dbo_LichTau_dbo_GaTau_MaGaDen" FromRole="GaTau" ToRole="LichTau" />
+    <NavigationProperty Name="LichTaus1" Relationship="Self.FK_dbo_LichTau_dbo_GaTau_MaGaDi" FromRole="GaTau" ToRole="LichTau" />
+  </EntityType>
+  <EntityType Name="HangVe">
+    <Key>
+      <PropertyRef Name="MaHangVe" />
+    </Key>
+    <Property Name="MaHangVe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenHangVeset" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MaKhoangNam" Type="Int32" />
+    <NavigationProperty Name="KhoangNam" Relationship="Self.FK_dbo_HangVe_dbo_KhoangNam_MaKhoangNam" FromRole="HangVe" ToRole="KhoangNam" />
+    <NavigationProperty Name="ToaTaus" Relationship="Self.FK_dbo_ToaTau_dbo_HangVe_MaHV" FromRole="HangVe" ToRole="ToaTau" />
+    <NavigationProperty Name="VeTaus" Relationship="Self.FK_dbo_VeTau_dbo_HangVe_MaHangVe" FromRole="HangVe" ToRole="VeTau" />
+  </EntityType>
+  <EntityType Name="KhachHang">
+    <Key>
+      <PropertyRef Name="MaKhachHang" />
+    </Key>
+    <Property Name="MaKhachHang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenKhachHang" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CMND" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SoDienThoai" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NgaySinh" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="VeTaus" Relationship="Self.FK_dbo_VeTau_dbo_KhachHang_MaKhachHang" FromRole="KhachHang" ToRole="VeTau" />
+  </EntityType>
+  <EntityType Name="KhoangNam">
+    <Key>
+      <PropertyRef Name="MaKhoangNam" />
+    </Key>
+    <Property Name="MaKhoangNam" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ViTriKhoang_4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ViTriKhoang_6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HangVes" Relationship="Self.FK_dbo_HangVe_dbo_KhoangNam_MaKhoangNam" FromRole="KhoangNam" ToRole="HangVe" />
+  </EntityType>
+  <EntityType Name="LichTau">
+    <Key>
+      <PropertyRef Name="MaLichTau" />
+    </Key>
+    <Property Name="MaLichTau" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaTau" Type="Int32" />
+    <Property Name="MaGaDi" Type="Int32" />
+    <Property Name="MaGaDen" Type="Int32" />
+    <Property Name="NgayDi" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ThoiGianDi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ThoiGianDen" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CT_GaTrungGian" Relationship="Self.FK_dbo_CT_GaTrungGian_dbo_LichTau_MaLichTau" FromRole="LichTau" ToRole="CT_GaTrungGian" />
+    <NavigationProperty Name="CT_LichTau_VeTau" Relationship="Self.FK_dbo_CT_LichTau_VeTau_dbo_LichTau_MaLichTau" FromRole="LichTau" ToRole="CT_LichTau_VeTau" />
+    <NavigationProperty Name="DSTau" Relationship="Self.FK_dbo_LichTau_dbo_DSTau_MaTau" FromRole="LichTau" ToRole="DSTau" />
+    <NavigationProperty Name="GaTau" Relationship="Self.FK_dbo_LichTau_dbo_GaTau_MaGaDen" FromRole="LichTau" ToRole="GaTau" />
+    <NavigationProperty Name="GaTau1" Relationship="Self.FK_dbo_LichTau_dbo_GaTau_MaGaDi" FromRole="LichTau" ToRole="GaTau" />
+    <NavigationProperty Name="VeTaus" Relationship="Self.FK_dbo_VeTau_dbo_LichTau_MaLichTau" FromRole="LichTau" ToRole="VeTau" />
+  </EntityType>
+  <EntityType Name="QuanLyGheTau">
+    <Key>
+      <PropertyRef Name="MaQLGhe" />
+    </Key>
+    <Property Name="MaQLGhe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaTau" Type="Int32" />
+    <Property Name="MaToa" Type="Int32" />
+    <Property Name="TenViTri" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DSTau" Relationship="Self.FK_dbo_QuanLyGheTau_dbo_DSTau_MaTau" FromRole="QuanLyGheTau" ToRole="DSTau" />
+    <NavigationProperty Name="ToaTau" Relationship="Self.FK_dbo_QuanLyGheTau_dbo_ToaTau_MaToa" FromRole="QuanLyGheTau" ToRole="ToaTau" />
+  </EntityType>
+  <EntityType Name="ThamSo">
+    <Key>
+      <PropertyRef Name="MaThamSo" />
+    </Key>
+    <Property Name="MaThamSo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GiaTri" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ToaTau">
+    <Key>
+      <PropertyRef Name="MaToaTau" />
+    </Key>
+    <Property Name="MaToaTau" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenToaTau" Type="Int32" Nullable="false" />
+    <Property Name="MaTau" Type="Int32" />
+    <Property Name="MaHV" Type="Int32" />
+    <Property Name="SoGhe" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="DSTau" Relationship="Self.FK_dbo_ToaTau_dbo_DSTau_MaTau" FromRole="ToaTau" ToRole="DSTau" />
+    <NavigationProperty Name="HangVe" Relationship="Self.FK_dbo_ToaTau_dbo_HangVe_MaHV" FromRole="ToaTau" ToRole="HangVe" />
+    <NavigationProperty Name="QuanLyGheTaus" Relationship="Self.FK_dbo_QuanLyGheTau_dbo_ToaTau_MaToa" FromRole="ToaTau" ToRole="QuanLyGheTau" />
+    <NavigationProperty Name="VeTaus" Relationship="Self.FK_dbo_VeTau_dbo_ToaTau_MaToa" FromRole="ToaTau" ToRole="VeTau" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VeTau">
+    <Key>
+      <PropertyRef Name="MaVeTau" />
+    </Key>
+    <Property Name="MaVeTau" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaLichTau" Type="Int32" />
+    <Property Name="MaKhachHang" Type="Int32" />
+    <Property Name="MaHangVe" Type="Int32" />
+    <Property Name="MaToa" Type="Int32" />
+    <Property Name="MaViTri" Type="Int32" />
+    <Property Name="GiaTien" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SoLuongKhach" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CT_LichTau_VeTau" Relationship="Self.FK_dbo_VeTau_dbo_CT_LichTau_VeTau_MaViTri" FromRole="VeTau" ToRole="CT_LichTau_VeTau" />
+    <NavigationProperty Name="HangVe" Relationship="Self.FK_dbo_VeTau_dbo_HangVe_MaHangVe" FromRole="VeTau" ToRole="HangVe" />
+    <NavigationProperty Name="KhachHang" Relationship="Self.FK_dbo_VeTau_dbo_KhachHang_MaKhachHang" FromRole="VeTau" ToRole="KhachHang" />
+    <NavigationProperty Name="LichTau" Relationship="Self.FK_dbo_VeTau_dbo_LichTau_MaLichTau" FromRole="VeTau" ToRole="LichTau" />
+    <NavigationProperty Name="ToaTau" Relationship="Self.FK_dbo_VeTau_dbo_ToaTau_MaToa" FromRole="VeTau" ToRole="ToaTau" />
+  </EntityType>
+  <Association Name="FK_dbo_CT_GaTrungGian_dbo_GaTau_MaGa">
+    <End Role="GaTau" Type="Self.GaTau" Multiplicity="0..1" />
+    <End Role="CT_GaTrungGian" Type="Self.CT_GaTrungGian" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GaTau">
+        <PropertyRef Name="MaGaTau" />
+      </Principal>
+      <Dependent Role="CT_GaTrungGian">
+        <PropertyRef Name="MaGa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_CT_GaTrungGian_dbo_LichTau_MaLichTau">
+    <End Role="LichTau" Type="Self.LichTau" Multiplicity="0..1" />
+    <End Role="CT_GaTrungGian" Type="Self.CT_GaTrungGian" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LichTau">
+        <PropertyRef Name="MaLichTau" />
+      </Principal>
+      <Dependent Role="CT_GaTrungGian">
+        <PropertyRef Name="MaLichTau" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_CT_LichTau_VeTau_dbo_LichTau_MaLichTau">
+    <End Role="LichTau" Type="Self.LichTau" Multiplicity="0..1" />
+    <End Role="CT_LichTau_VeTau" Type="Self.CT_LichTau_VeTau" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LichTau">
+        <PropertyRef Name="MaLichTau" />
+      </Principal>
+      <Dependent Role="CT_LichTau_VeTau">
+        <PropertyRef Name="MaLichTau" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_VeTau_dbo_CT_LichTau_VeTau_MaViTri">
+    <End Role="CT_LichTau_VeTau" Type="Self.CT_LichTau_VeTau" Multiplicity="0..1" />
+    <End Role="VeTau" Type="Self.VeTau" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CT_LichTau_VeTau">
+        <PropertyRef Name="MaViTri" />
+      </Principal>
+      <Dependent Role="VeTau">
+        <PropertyRef Name="MaViTri" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_LichTau_dbo_DSTau_MaTau">
+    <End Role="DSTau" Type="Self.DSTau" Multiplicity="0..1" />
+    <End Role="LichTau" Type="Self.LichTau" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DSTau">
+        <PropertyRef Name="MaDSTau" />
+      </Principal>
+      <Dependent Role="LichTau">
+        <PropertyRef Name="MaTau" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_QuanLyGheTau_dbo_DSTau_MaTau">
+    <End Role="DSTau" Type="Self.DSTau" Multiplicity="0..1" />
+    <End Role="QuanLyGheTau" Type="Self.QuanLyGheTau" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DSTau">
+        <PropertyRef Name="MaDSTau" />
+      </Principal>
+      <Dependent Role="QuanLyGheTau">
+        <PropertyRef Name="MaTau" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ToaTau_dbo_DSTau_MaTau">
+    <End Role="DSTau" Type="Self.DSTau" Multiplicity="0..1" />
+    <End Role="ToaTau" Type="Self.ToaTau" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DSTau">
+        <PropertyRef Name="MaDSTau" />
+      </Principal>
+      <Dependent Role="ToaTau">
+        <PropertyRef Name="MaTau" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_LichTau_dbo_GaTau_MaGaDen">
+    <End Role="GaTau" Type="Self.GaTau" Multiplicity="0..1" />
+    <End Role="LichTau" Type="Self.LichTau" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GaTau">
+        <PropertyRef Name="MaGaTau" />
+      </Principal>
+      <Dependent Role="LichTau">
+        <PropertyRef Name="MaGaDen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_LichTau_dbo_GaTau_MaGaDi">
+    <End Role="GaTau" Type="Self.GaTau" Multiplicity="0..1" />
+    <End Role="LichTau" Type="Self.LichTau" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GaTau">
+        <PropertyRef Name="MaGaTau" />
+      </Principal>
+      <Dependent Role="LichTau">
+        <PropertyRef Name="MaGaDi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_HangVe_dbo_KhoangNam_MaKhoangNam">
+    <End Role="KhoangNam" Type="Self.KhoangNam" Multiplicity="0..1" />
+    <End Role="HangVe" Type="Self.HangVe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhoangNam">
+        <PropertyRef Name="MaKhoangNam" />
+      </Principal>
+      <Dependent Role="HangVe">
+        <PropertyRef Name="MaKhoangNam" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ToaTau_dbo_HangVe_MaHV">
+    <End Role="HangVe" Type="Self.HangVe" Multiplicity="0..1" />
+    <End Role="ToaTau" Type="Self.ToaTau" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HangVe">
+        <PropertyRef Name="MaHangVe" />
+      </Principal>
+      <Dependent Role="ToaTau">
+        <PropertyRef Name="MaHV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_VeTau_dbo_HangVe_MaHangVe">
+    <End Role="HangVe" Type="Self.HangVe" Multiplicity="0..1" />
+    <End Role="VeTau" Type="Self.VeTau" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HangVe">
+        <PropertyRef Name="MaHangVe" />
+      </Principal>
+      <Dependent Role="VeTau">
+        <PropertyRef Name="MaHangVe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_VeTau_dbo_KhachHang_MaKhachHang">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
+    <End Role="VeTau" Type="Self.VeTau" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="MaKhachHang" />
+      </Principal>
+      <Dependent Role="VeTau">
+        <PropertyRef Name="MaKhachHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_VeTau_dbo_LichTau_MaLichTau">
+    <End Role="LichTau" Type="Self.LichTau" Multiplicity="0..1" />
+    <End Role="VeTau" Type="Self.VeTau" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LichTau">
+        <PropertyRef Name="MaLichTau" />
+      </Principal>
+      <Dependent Role="VeTau">
+        <PropertyRef Name="MaLichTau" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_QuanLyGheTau_dbo_ToaTau_MaToa">
+    <End Role="ToaTau" Type="Self.ToaTau" Multiplicity="0..1" />
+    <End Role="QuanLyGheTau" Type="Self.QuanLyGheTau" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ToaTau">
+        <PropertyRef Name="MaToaTau" />
+      </Principal>
+      <Dependent Role="QuanLyGheTau">
+        <PropertyRef Name="MaToa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_VeTau_dbo_ToaTau_MaToa">
+    <End Role="ToaTau" Type="Self.ToaTau" Multiplicity="0..1" />
+    <End Role="VeTau" Type="Self.VeTau" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ToaTau">
+        <PropertyRef Name="MaToaTau" />
+      </Principal>
+      <Dependent Role="VeTau">
+        <PropertyRef Name="MaToa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QuanLyVeTauContextEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="CT_GaTrungGian" EntityType="Self.CT_GaTrungGian" />
+    <EntitySet Name="CT_LichTau_VeTau" EntityType="Self.CT_LichTau_VeTau" />
+    <EntitySet Name="DSTaus" EntityType="Self.DSTau" />
+    <EntitySet Name="GaTaus" EntityType="Self.GaTau" />
+    <EntitySet Name="HangVes" EntityType="Self.HangVe" />
+    <EntitySet Name="KhachHangs" EntityType="Self.KhachHang" />
+    <EntitySet Name="KhoangNams" EntityType="Self.KhoangNam" />
+    <EntitySet Name="LichTaus" EntityType="Self.LichTau" />
+    <EntitySet Name="QuanLyGheTaus" EntityType="Self.QuanLyGheTau" />
+    <EntitySet Name="ThamSoes" EntityType="Self.ThamSo" />
+    <EntitySet Name="ToaTaus" EntityType="Self.ToaTau" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="VeTaus" EntityType="Self.VeTau" />
+    <AssociationSet Name="FK_dbo_CT_GaTrungGian_dbo_GaTau_MaGa" Association="Self.FK_dbo_CT_GaTrungGian_dbo_GaTau_MaGa">
+      <End Role="GaTau" EntitySet="GaTaus" />
+      <End Role="CT_GaTrungGian" EntitySet="CT_GaTrungGian" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_CT_GaTrungGian_dbo_LichTau_MaLichTau" Association="Self.FK_dbo_CT_GaTrungGian_dbo_LichTau_MaLichTau">
+      <End Role="LichTau" EntitySet="LichTaus" />
+      <End Role="CT_GaTrungGian" EntitySet="CT_GaTrungGian" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_CT_LichTau_VeTau_dbo_LichTau_MaLichTau" Association="Self.FK_dbo_CT_LichTau_VeTau_dbo_LichTau_MaLichTau">
+      <End Role="LichTau" EntitySet="LichTaus" />
+      <End Role="CT_LichTau_VeTau" EntitySet="CT_LichTau_VeTau" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_VeTau_dbo_CT_LichTau_VeTau_MaViTri" Association="Self.FK_dbo_VeTau_dbo_CT_LichTau_VeTau_MaViTri">
+      <End Role="CT_LichTau_VeTau" EntitySet="CT_LichTau_VeTau" />
+      <End Role="VeTau" EntitySet="VeTaus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_LichTau_dbo_DSTau_MaTau" Association="Self.FK_dbo_LichTau_dbo_DSTau_MaTau">
+      <End Role="DSTau" EntitySet="DSTaus" />
+      <End Role="LichTau" EntitySet="LichTaus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_QuanLyGheTau_dbo_DSTau_MaTau" Association="Self.FK_dbo_QuanLyGheTau_dbo_DSTau_MaTau">
+      <End Role="DSTau" EntitySet="DSTaus" />
+      <End Role="QuanLyGheTau" EntitySet="QuanLyGheTaus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ToaTau_dbo_DSTau_MaTau" Association="Self.FK_dbo_ToaTau_dbo_DSTau_MaTau">
+      <End Role="DSTau" EntitySet="DSTaus" />
+      <End Role="ToaTau" EntitySet="ToaTaus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_LichTau_dbo_GaTau_MaGaDen" Association="Self.FK_dbo_LichTau_dbo_GaTau_MaGaDen">
+      <End Role="GaTau" EntitySet="GaTaus" />
+      <End Role="LichTau" EntitySet="LichTaus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_LichTau_dbo_GaTau_MaGaDi" Association="Self.FK_dbo_LichTau_dbo_GaTau_MaGaDi">
+      <End Role="GaTau" EntitySet="GaTaus" />
+      <End Role="LichTau" EntitySet="LichTaus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_HangVe_dbo_KhoangNam_MaKhoangNam" Association="Self.FK_dbo_HangVe_dbo_KhoangNam_MaKhoangNam">
+      <End Role="KhoangNam" EntitySet="KhoangNams" />
+      <End Role="HangVe" EntitySet="HangVes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ToaTau_dbo_HangVe_MaHV" Association="Self.FK_dbo_ToaTau_dbo_HangVe_MaHV">
+      <End Role="HangVe" EntitySet="HangVes" />
+      <End Role="ToaTau" EntitySet="ToaTaus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_VeTau_dbo_HangVe_MaHangVe" Association="Self.FK_dbo_VeTau_dbo_HangVe_MaHangVe">
+      <End Role="HangVe" EntitySet="HangVes" />
+      <End Role="VeTau" EntitySet="VeTaus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_VeTau_dbo_KhachHang_MaKhachHang" Association="Self.FK_dbo_VeTau_dbo_KhachHang_MaKhachHang">
+      <End Role="KhachHang" EntitySet="KhachHangs" />
+      <End Role="VeTau" EntitySet="VeTaus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_VeTau_dbo_LichTau_MaLichTau" Association="Self.FK_dbo_VeTau_dbo_LichTau_MaLichTau">
+      <End Role="LichTau" EntitySet="LichTaus" />
+      <End Role="VeTau" EntitySet="VeTaus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_QuanLyGheTau_dbo_ToaTau_MaToa" Association="Self.FK_dbo_QuanLyGheTau_dbo_ToaTau_MaToa">
+      <End Role="ToaTau" EntitySet="ToaTaus" />
+      <End Role="QuanLyGheTau" EntitySet="QuanLyGheTaus" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_VeTau_dbo_ToaTau_MaToa" Association="Self.FK_dbo_VeTau_dbo_ToaTau_MaToa">
+      <End Role="ToaTau" EntitySet="ToaTaus" />
+      <End Role="VeTau" EntitySet="VeTaus" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

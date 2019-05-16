@@ -1,46 +1,40 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Trang Chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 class="text-center">QUẢN LÝ GA TÀU</h2>
-<br />
-<div class="container">
-    <h3>Danh sách ga tàu</h3>
+<h3 class="text-center m-3">Đặt vé tàu trực tuyến</h3>
+<div class="container modal-body">
     <div>
         <form action="~/Gatau/Create_GaTau" method="post">
             <div class="form-group">
-                <div class="row">
-                    <div class="col-sm-4"></div>
-                    <div class="col-sm-2">
-                        <input type="checkbox" name="KhuHoi" value="MotChieu">Một chiều<br>
-                    </div>
-                    <div class="col-sm-2">
-                        <input type="checkbox" name="MotChieu" value="KhuHoi">Khứ hồi<br>
-                    </div>
-                </div>
                 <div class="form-group input-group">
-                    <span class="input-group-addon">Ga Đi</span>
+                    <span class="input-group-addon">Ga Đi </span>
+                    <br />
                     <input type="text" name="GaDi" value="" class="form-control" required />
                 </div>
                 <div class="form-group input-group">
-                    <span class="input-group-addon">Ga Đến</span>
+                    <span class="input-group-addon">Ga Đến </span>
+                    <br />
                     <input type="text" name="GaDen" value="" class="form-control" required />
                 </div>
-                
+                <div class="form-group input-group">
+                    <span class="input-group-addon">Ngày Đi </span>
+                    <input type="date" name="Date_Birth" value="" class="input-sm" />
+                </div>
             </div>
-            <input type="submit" class="btn btn-info" name="name" value="Tạo chuyến tàu" />
+            <input type="submit" class="btn btn-success float-right" name="name" value="Tìm kiếm" />
         </form>
     </div>
-
+    <br />
     <br />
     <div>
+        <h2 class="text-center">Lịch tàu</h2>
         <table class="table table-bordered">
             <tr>
                 <td>Ga Đi</td>
                 <td>Ga Đến</td>
                 <td>Ngày Đi</td>
-                <td>Ngày Về</td>
             </tr>
             @if (ViewBag.Gatau != null)
             {
@@ -49,10 +43,8 @@
                     <td>@item.gaDi</td>
                     <td>@item.gaDen</td>
                     <td>@item.ngayDi</td>
-                    <td>@item.ngayVe</td>
                 }
             }
         </table>
     </div>
 </div>
-
