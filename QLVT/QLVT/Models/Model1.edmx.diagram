@@ -4,21 +4,25 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="67943dc3c3c24681988f4f233197a9db" Name="Diagram1">
-        <EntityTypeShape EntityType="QuanLyVeTauContextModel.C__MigrationHistory" Width="1.5" PointX="8.75" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyVeTauContextModel.CT_GaTrungGian" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyVeTauContextModel.CT_LichTau_VeTau" Width="1.5" PointX="5.25" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyVeTauContextModel.DSTau" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyVeTauContextModel.GaTau" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyVeTauContextModel.HangVe" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyVeTauContextModel.KhachHang" Width="1.5" PointX="6.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyVeTauContextModel.KhoangNam" Width="1.5" PointX="1.5" PointY="12" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyVeTauContextModel.LichTau" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyVeTauContextModel.QuanLyGheTau" Width="1.5" PointX="6" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyVeTauContextModel.ThamSo" Width="1.5" PointX="7.75" PointY="10.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyVeTauContextModel.ToaTau" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyVeTauContextModel.User" Width="1.5" PointX="9.75" PointY="10.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="QuanLyVeTauContextModel.VeTau" Width="1.5" PointX="8.5" PointY="6.375" IsExpanded="true" />
+      <Diagram DiagramId="56018c6c37dc4643a200eec05fd73658" Name="Diagram1">
+        <EntityTypeShape EntityType="QuanLyVeTauContextModel.C__MigrationHistory" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyVeTauContextModel.BCDoanhThuThang" Width="1.5" PointX="7.5" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyVeTauContextModel.CT_GaTrungGian" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyVeTauContextModel.CT_LichTau_VeTau" Width="1.5" PointX="5.25" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyVeTauContextModel.DSTau" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyVeTauContextModel.GaTau" Width="1.5" PointX="0.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyVeTauContextModel.HangVe" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyVeTauContextModel.KhachHang" Width="1.5" PointX="6.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyVeTauContextModel.KhoangNam" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyVeTauContextModel.LichTau" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyVeTauContextModel.QuanLyGheTau" Width="1.5" PointX="6" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyVeTauContextModel.sysdiagram" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyVeTauContextModel.ThamSo" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyVeTauContextModel.ToaTau" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyVeTauContextModel.User" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyVeTauContextModel.VeTau" Width="1.5" PointX="8.5" PointY="7.25" IsExpanded="true" />
+        <AssociationConnector Association="QuanLyVeTauContextModel.FK_BCDoanhThuThang_CT_LichTau_VeTau" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyVeTauContextModel.FK_BCDoanhThuThang_KhachHang" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLyVeTauContextModel.FK_dbo_CT_GaTrungGian_dbo_GaTau_MaGa" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLyVeTauContextModel.FK_dbo_CT_GaTrungGian_dbo_LichTau_MaLichTau" ManuallyRouted="false" />
         <AssociationConnector Association="QuanLyVeTauContextModel.FK_dbo_CT_LichTau_VeTau_dbo_LichTau_MaLichTau" ManuallyRouted="false" />

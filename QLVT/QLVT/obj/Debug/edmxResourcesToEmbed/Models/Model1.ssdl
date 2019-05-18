@@ -10,6 +10,16 @@
     <Property Name="Model" Type="varbinary(max)" Nullable="false" />
     <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
   </EntityType>
+  <EntityType Name="BCDoanhThuThang">
+    <Key>
+      <PropertyRef Name="MaTau" />
+    </Key>
+    <Property Name="MaTau" Type="int" Nullable="false" />
+    <Property Name="MaKH" Type="int" Nullable="false" />
+    <Property Name="MaViTri" Type="int" Nullable="false" />
+    <Property Name="GiaVe" Type="nvarchar(max)" />
+    <Property Name="Thang" Type="int" />
+  </EntityType>
   <EntityType Name="CT_GaTrungGian">
     <Key>
       <PropertyRef Name="MaGaTrungGian" />
@@ -90,6 +100,16 @@
     <Property Name="MaToa" Type="int" />
     <Property Name="TenViTri" Type="nvarchar(max)" />
   </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
   <EntityType Name="ThamSo">
     <Key>
       <PropertyRef Name="MaThamSo" />
@@ -130,6 +150,30 @@
     <Property Name="GiaTien" Type="nvarchar(max)" />
     <Property Name="SoLuongKhach" Type="int" Nullable="false" />
   </EntityType>
+  <Association Name="FK_BCDoanhThuThang_CT_LichTau_VeTau">
+    <End Role="CT_LichTau_VeTau" Type="Self.CT_LichTau_VeTau" Multiplicity="1" />
+    <End Role="BCDoanhThuThang" Type="Self.BCDoanhThuThang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CT_LichTau_VeTau">
+        <PropertyRef Name="MaViTri" />
+      </Principal>
+      <Dependent Role="BCDoanhThuThang">
+        <PropertyRef Name="MaViTri" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BCDoanhThuThang_KhachHang">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1" />
+    <End Role="BCDoanhThuThang" Type="Self.BCDoanhThuThang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="MaKhachHang" />
+      </Principal>
+      <Dependent Role="BCDoanhThuThang">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_dbo_CT_GaTrungGian_dbo_GaTau_MaGa">
     <End Role="GaTau" Type="Self.GaTau" Multiplicity="0..1" />
     <End Role="CT_GaTrungGian" Type="Self.CT_GaTrungGian" Multiplicity="*" />
@@ -324,6 +368,7 @@
   </Association>
   <EntityContainer Name="QuanLyVeTauContextModelStoreContainer">
     <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BCDoanhThuThang" EntityType="Self.BCDoanhThuThang" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CT_GaTrungGian" EntityType="Self.CT_GaTrungGian" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CT_LichTau_VeTau" EntityType="Self.CT_LichTau_VeTau" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DSTau" EntityType="Self.DSTau" Schema="dbo" store:Type="Tables" />
@@ -333,10 +378,19 @@
     <EntitySet Name="KhoangNam" EntityType="Self.KhoangNam" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LichTau" EntityType="Self.LichTau" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="QuanLyGheTau" EntityType="Self.QuanLyGheTau" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ThamSo" EntityType="Self.ThamSo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ToaTau" EntityType="Self.ToaTau" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VeTau" EntityType="Self.VeTau" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_BCDoanhThuThang_CT_LichTau_VeTau" Association="Self.FK_BCDoanhThuThang_CT_LichTau_VeTau">
+      <End Role="CT_LichTau_VeTau" EntitySet="CT_LichTau_VeTau" />
+      <End Role="BCDoanhThuThang" EntitySet="BCDoanhThuThang" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BCDoanhThuThang_KhachHang" Association="Self.FK_BCDoanhThuThang_KhachHang">
+      <End Role="KhachHang" EntitySet="KhachHang" />
+      <End Role="BCDoanhThuThang" EntitySet="BCDoanhThuThang" />
+    </AssociationSet>
     <AssociationSet Name="FK_dbo_CT_GaTrungGian_dbo_GaTau_MaGa" Association="Self.FK_dbo_CT_GaTrungGian_dbo_GaTau_MaGa">
       <End Role="GaTau" EntitySet="GaTau" />
       <End Role="CT_GaTrungGian" EntitySet="CT_GaTrungGian" />

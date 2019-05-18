@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using QLVT.Models;
+using System.Text.RegularExpressions;
 
 namespace WebApplication1.Controllers
 {
@@ -13,9 +14,24 @@ namespace WebApplication1.Controllers
         private QuanLyVeTauContextEntities db = new QuanLyVeTauContextEntities();
         public ActionResult Index()
         {
+            ViewBag.ListError = new List<string>();
             return View();
         }
+        public ActionResult SearchTV()
+        {
+            List<LichTau> lichtau = new List<LichTau>();
+            foreach (var item in db.LichTaus)
+            {
+                List<GaTau> GaTauDi;
+                using (var db = new QuanLyVeTauContextEntities())
+                {
+                    GaTauDi = db.GaTaus.Where(hs => hs.MaGaTau == item.MaGaDi).ToList();
+                }
 
+            }
+            ViewBag.MaGaTau = new SelectList(lichtau, "MaGaDi", "TenGa"); 
+            return View();
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -75,6 +91,19 @@ namespace WebApplication1.Controllers
         {
             Session.RemoveAll();
             return RedirectToAction("Login", "Home");
+        }
+        public List<string> Validation(string GaDi, string GaDen)
+        {
+            // Danh sách lỗi
+            var lsError = new List<string>();
+            // Ký tự đặc biệt
+            var regexItem = new Regex("^[a-zA-Z0-9 ]*$");
+            var specicalChar = new Regex("^[\\.[{(*+?^$|]*$");
+
+            // Validate Ten
+            if (GaDi == "") lsError.Add("Ga đi không được để trống");
+            if (GaDen == "") lsError.Add("Ga đến không được để trống");
+            return lsError;
         }
 
     }

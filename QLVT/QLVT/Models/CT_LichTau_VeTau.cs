@@ -17,6 +17,7 @@ namespace QLVT.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CT_LichTau_VeTau()
         {
+            this.BCDoanhThuThangs = new HashSet<BCDoanhThuThang>();
             this.VeTaus = new HashSet<VeTau>();
         }
     
@@ -24,6 +25,8 @@ namespace QLVT.Models
         public Nullable<int> MaLichTau { get; set; }
         public bool DaDat { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BCDoanhThuThang> BCDoanhThuThangs { get; set; }
         public virtual LichTau LichTau { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VeTau> VeTaus { get; set; }

@@ -3,48 +3,75 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h3 class="text-center m-3">Đặt vé tàu trực tuyến</h3>
-<div class="container modal-body">
-    <div>
-        <form action="~/Gatau/Create_GaTau" method="post">
-            <div class="form-group">
-                <div class="form-group input-group">
-                    <span class="input-group-addon">Ga Đi </span>
-                    <br />
-                    <input type="text" name="GaDi" value="" class="form-control" required />
-                </div>
-                <div class="form-group input-group">
-                    <span class="input-group-addon">Ga Đến </span>
-                    <br />
-                    <input type="text" name="GaDen" value="" class="form-control" required />
-                </div>
-                <div class="form-group input-group">
-                    <span class="input-group-addon">Ngày Đi </span>
-                    <input type="date" name="Date_Birth" value="" class="input-sm" />
+<h3 class="text-center m-3">Thông tin hành trình</h3>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xs- 2 col-md-4">
+                <div class="card card-default">
+                    <div class="card-header">
+                        <b>
+                            Tìm vé tàu
+                        </b>
+                    </div>
+                    <div class="card-body">
+                        <span class="input-group-addon">Ga Đi </span>
+                        <div class="form-group input-group">
+                            <br />
+                            <input type="text" name="GaDi" value="" class="form-control" required placeholder="Ga Đi"/>
+                        </div>
+                        <span class="input-group-addon">Ga Đến </span>
+                        <div class="form-group input-group">
+                            <br />
+                            <input type="text" name="GaDen" value="" class="form-control" required placeholder="Ga Đến"/>
+                        </div>
+                        <span class="input-group-addon">Ngày Đi </span>
+                        <div class="form-group input-group">
+                            <input type="date" name="Date_Birth" value="" class="input-sm" />
+                        </div>
+                    </div>
+                    <input type="submit" class="btn btn-success float-right" name="name" value="Tìm kiếm" />
+
                 </div>
             </div>
-            <input type="submit" class="btn btn-success float-right" name="name" value="Tìm kiếm" />
-        </form>
+        </div>
+
     </div>
-    <br />
-    <br />
-    <div>
-        <h2 class="text-center">Lịch tàu</h2>
-        <table class="table table-bordered">
-            <tr>
-                <td>Ga Đi</td>
-                <td>Ga Đến</td>
-                <td>Ngày Đi</td>
-            </tr>
-            @if (ViewBag.Gatau != null)
-            {
-                foreach (var item in ViewBag.Gatau)
-                {
-                    <td>@item.gaDi</td>
-                    <td>@item.gaDen</td>
-                    <td>@item.ngayDi</td>
-                }
-            }
-        </table>
-    </div>
-</div>
+    @*<div>
+                <h2 class="text-center">Lịch tàu</h2>
+                <div>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Mã hồ sơ</th>
+                                <th>Tên đại lý</th>
+                                <th>Quận</th>
+                                <th>Loại đại lý</th>
+                                <th>Tiền nợ</th>
+                                <th>Xem chi tiết</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (ViewBag.ListHSDL != null)
+                            {
+                                foreach (var item in ViewBag.ListHSDL)
+                                {
+                                    <tr>
+                                        <td>@item.MaHSDL</td>
+                                        <td>@item.Ten</td>
+                                        <td>@item.Quan.TenQuan</td>
+                                        <td>@item.LoaiDaiLy.TenLDL</td>
+                                        <td>@item.TienNo</td>
+
+                                        <td>
+                                            <form action="~/HoSo/HoSoDetail/@item.MaHSDL">
+                                                <button class="btn btn-primary" type="submit">Chi tiết</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>*@

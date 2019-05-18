@@ -1,0 +1,66 @@
+﻿@model QLVT.Models.LichTau
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LichTau</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NgayDi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayDi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThoiGianDi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThoiGianDi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThoiGianDen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThoiGianDen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DSTau.TenTau)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DSTau.TenTau)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GaTau.TenGa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GaTau.TenGa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GaTau1.TenGa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GaTau1.TenGa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaLichTau }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

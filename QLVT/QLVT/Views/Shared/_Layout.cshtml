@@ -40,44 +40,67 @@
 
 <body>
     <!-- Thanh Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #3E68FF;">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #3E68FF; font-weight:bold;">
         <a class="navbar-brand" href="/Home">
-            <img src="~/Content/images/icon-72x72.png" alt="Reuse" />
+            <img src="~/Content/images/icon-72x72.png" alt="Train Booking" />
         </a>
-        <a class="navbar-brand" href="/Home">Train Booking</a>
+        <p class="navbar-brand" href="/Home">Train Booking</p>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
-
         <!-- Khi người dùng đã đăng nhập vào-->
         @if (user != null)
         {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    @if (user.Url == "admin")
-                    {
-                        <li class="nav-item active" href="/GaTau">Thông tin lịch tàu</li>
-                        <li class="nav-item" href="/GaTau">Đặt vé tàu</li>
-                    }
 
-                </ul>
-
+                @if (user.Url == "admin")
+                {
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link">@user.UserName</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="~/Home/Logout">Đăng xuất</a>
+                    <li class="nav-link active" style="padding-top:15px" href="/GaTau">Thông tin lịch tàu</li>
+                    <li class="nav-link" style="padding-top:15px" href="/GaTau">Giờ tàu & giá vé</li>
+                    <li class="nav-link" style="padding-top:15px" href="/GaTau">Quy định</li>
+                    <li class="nav-link" style="padding-top:15px" href="/GaTau">Liên hệ</li>
+                    <li class="nav-link dropdown">
+                        <a class="nav-link dropdown-toggle" style="color:white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hi, @user.UserName</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" style="color:black;" href="~/Home/Logout">Đăng xuất</a>
+                        </div>
                     </li>
                 </ul>
+                }
+                else
+                {
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" style="color:white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hi @user.UserName</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="nav-item active" href="/GaTau">Thông tin lịch tàu</a>
+                                <a class="nav-item" href="/GaTau">Đặt vé tàu</a>
+                                <a class="dropdown-item" style="color:black;" href="~/Home/Logout">Đăng xuất</a>
+                            </div>
+                        </li>
+                    </ul>
+                }
+
+                @*<ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" style="color:white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hi @user.UserName</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" style="color:black;" href="~/Home/Logout">Đăng xuất</a>
+                </div>
+            </li>
+        </ul>*@
             </div>
         }
         else
         {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto pull-right">
-                    <li class="nav-item">
+                    <li class="nav-link active" style="padding-top:15px" href="/GaTau">Thông tin lịch tàu</li>
+                    <li class="nav-link" style="padding-top:15px" href="/GaTau">Giờ tàu & giá vé</li>
+                    <li class="nav-link" style="padding-top:15px" href="/GaTau">Quy định</li>
+                    <li class="nav-link" style="padding-top:15px" href="/GaTau">Liên hệ</li>
+                    <li class="nav-link">
                         <a class="nav-link" href="~/Home/Login">Đăng nhập</a>
                     </li>
                 </ul>
@@ -91,14 +114,15 @@
         <div class="container-fluid">
             @RenderBody()
         </div>
-        <hr />
     </div>
 
-    <footer>
+    <footer style="background-color: #2B3C40;height:100%; color:white;">
+        <hr />
         <div class="container-fluid">
-            <p align="center">Website Bán vé tàu online - CNPM-NC 2019</p>
+            
+            <p align="center">Website Bán vé tàu online - CNPMNC 2019</p>
             <p class="copyright" align="center">
-                &copy; 2019 <a href="https://www.facebook.com/">HellGray98</a>
+                Copyright   &copy; 2019 HellGray98
             </p>
         </div>
     </footer>

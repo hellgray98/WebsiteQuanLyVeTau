@@ -26,6 +26,7 @@ namespace QLVT.Models
         }
     
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
+        public virtual DbSet<BCDoanhThuThang> BCDoanhThuThangs { get; set; }
         public virtual DbSet<CT_GaTrungGian> CT_GaTrungGian { get; set; }
         public virtual DbSet<CT_LichTau_VeTau> CT_LichTau_VeTau { get; set; }
         public virtual DbSet<DSTau> DSTaus { get; set; }
@@ -35,6 +36,7 @@ namespace QLVT.Models
         public virtual DbSet<KhoangNam> KhoangNams { get; set; }
         public virtual DbSet<LichTau> LichTaus { get; set; }
         public virtual DbSet<QuanLyGheTau> QuanLyGheTaus { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<ThamSo> ThamSoes { get; set; }
         public virtual DbSet<ToaTau> ToaTaus { get; set; }
         public virtual DbSet<User> Users { get; set; }

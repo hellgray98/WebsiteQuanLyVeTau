@@ -3,35 +3,37 @@
                 ViewBag.Title = "Login";
                 Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="row">
-    <div align="center" class="col-12">
-        <div class="mt-5 mb-5 pt-3 pb-3 border border-primary shadow p-3 mb-5 bg-white rounded" style="width: 70%">
-            <h2 align="center" class="m-3">Đăng nhập</h2>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div align="center" class="login-container col-lg-6 col-sm-8 col-11">
+            <div class="mt-5 mb-5 pt-3 pb-3 border border-primary shadow p-3 mb-5 bg-white rounded" style="width: 100%">
+                <h2 align="center" class="m-3">Đăng nhập</h2>
 
-            <!-- Danh sách lỗi -->
-            @if (ViewBag.ListError.Count > 0)
-            {
-                foreach (var item in ViewBag.ListError)
+                <!-- Danh sách lỗi -->
+                @if (ViewBag.ListError.Count > 0)
                 {
-                    <div class="alert alert-danger" role="alert">
-                        @item
-                    </div>
+                    foreach (var item in ViewBag.ListError)
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            @item
+                        </div>
+                    }
                 }
-            }
 
-            <!--Khung đăng nhập-->
-            <form action="~/Home/Login" method="post" style="width:80%">
-                <div class="form-group">
-                    @Html.TextBox("UserName", null, new { @class = "form-control", placeholder = "Tài khoản" })
-                </div>
-                <div class="form-group">
-                    @Html.Password("Password", null, new { @class = "form-control", placeholder = "Mật khẩu" })
-                </div>
-                <button type="submit" class="m-3 btn btn-primary">Đăng nhập</button>
-            </form>
+                <!--Khung đăng nhập-->
+                <form action="~/Home/Login" method="post" style="width:80%">
+                    <div class="form-group">
+                        @Html.TextBox("UserName", null, new { @class = "form-control", placeholder = "Tài khoản" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Password("Password", null, new { @class = "form-control", placeholder = "Mật khẩu" })
+                    </div>
+                    <button type="submit" class="m-3 btn btn-primary">Đăng nhập</button>
+                </form>
+
+            </div>
 
         </div>
-
     </div>
 </div>
 
